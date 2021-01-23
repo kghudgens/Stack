@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class StockInformation(models.Model):
-    name = models.CharField(max_length=30)
-    ticker = models.CharField(max_length=10)
+class TaskManager(models.Model):
+    task_name = models.CharField(max_length=30)
+    detail = models.CharField(max_length=10)
+    date = models.DateTimeField(auto_now_add=True)
