@@ -2,11 +2,26 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
+
+<!-- Add messages -->
+{% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li {%if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+  </ul>
+{% endif %}
+
 <h1>Stack your tasks</h1>
 
+<!-- Form  -->
 <div class="form-group">
-{{form | crispy}}
-<button type="submit" class="btn btn-primary">Submit</button>
+  <form action="POST">
+    <fieldset>
+      {%csrf_token%}
+      {{form | crispy}}
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+  </form>
 </div>
 
 
