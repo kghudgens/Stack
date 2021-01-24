@@ -2,5 +2,13 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
+<h1>Stack your tasks</h1>
 
-  </div>{%endblock content%}
+<div class="form-group">
+{{form | crispy}}
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+
+
+{%endblock content%}
