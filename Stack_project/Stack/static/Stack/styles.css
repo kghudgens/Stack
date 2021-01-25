@@ -1,3 +1,10 @@
 body{
     background-color:#CCDBDC;
 }
+
+.form-group{
+    margin: 0, auto;
+    width:600px;
+    padding: 20px;
+    border:2px solid 
+}
