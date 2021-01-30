@@ -4,6 +4,10 @@ from django.http import HttpResponseRedirect
 from .forms import TaskForm
 
 
+def index(request):
+    return render(request, "Stack/index.html")
+
+
 def create(request):
     if request.method == "POST":
         form = TaskForm(request.POST)
