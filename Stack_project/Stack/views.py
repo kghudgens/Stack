@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .forms import TaskForm
 
 
-def index(request):
+def create(request):
     if request.method == "POST":
         form = TaskForm(request.POST)
         if form.is_valid():
@@ -13,4 +13,4 @@ def index(request):
             return redirect("index")
     else:
         form = TaskForm()
-    return render(request, "Stack/index.html", {"form": form})
+    return render(request, "Stack/create.html", {"form": form})
