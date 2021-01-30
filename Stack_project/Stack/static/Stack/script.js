@@ -13,9 +13,7 @@ window.setTimeout(showOverlay, 10000)
 
 // Takes the user input
 document.querySelector('.save').addEventListener('click', function(){
-    let formInput = document.querySelector('.formInput').textContent
-    console.log(formInput);
+    let formInput = document.querySelector('.formInput').value;
 }
 )
 
-console.log(input);
