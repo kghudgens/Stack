@@ -9,7 +9,7 @@ function showOverlay(){
     overlay.classList.remove('hidden')
 }
 // Set timer for window pop
-window.setTimeout(showOverlay, 10000)
+window.setTimeout(showOverlay, 5000)
 
 // Takes the user input
 document.querySelector('.save').addEventListener('click', function(){
