@@ -13,26 +13,33 @@
     <title>Stack | Home </title>
 </head>
 <body>
+
+  <div class="container">
+    <nav class='navbar-inline navbar-expand-lg'>
+      <ul class="navbar-nav mr-auto my-2 my-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'index' %}"> Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'logout' %}">Log Out</a>
+        </li>
+    {%else%}
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'login' %}">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{%url 'register' %}">Register</a>
+        </li>
+    {%endif%}
+      </ul>
+    </nav>
+  </div>
 <!-- Nav Bar -->
-<div class="container">
-      <nav class='navbar-inline navbar-expand-lg'>
-        
-        <ul class="navbar-nav mr-auto my-2 my-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'index' %}"> Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{%url 'login'%}">Log In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Register</a>
-            </li>
-        </ul>
-     </nav>
-</div>
+
 
 <!-- Customized content  -->
     {%block content%}
