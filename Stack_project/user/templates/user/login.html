@@ -2,20 +2,28 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
-<!-- Deal with errors  -->
-{%if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{%endif%}
+    <!-- Deliver success message -->
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
 
-<!-- Login form -->
-<h2>Login</h2>
-<div class="form-group">
-    <form method="POST">
-        <fieldset>
-        {%csrf_token%}
-        {{form | crispy}}
-        <button type='submit'class="btn btn-primary">Login</button>
-        </fieldset>
-    </form>
-</div>
+    <!-- Deal with errors  -->
+    {%if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {%endif%}
+
+    <!-- Login form -->
+    <h2>Login</h2>
+    <div class="form-group">
+        <form method="POST">
+            <fieldset>
+            {%csrf_token%}
+            {{form | crispy}}
+            <button type='submit'class="btn btn-primary">Login</button>
+            </fieldset>
+        </form>
+    </div>
+    
 {%endblock content%}
