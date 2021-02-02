@@ -26,4 +26,5 @@ urlpatterns = [
     path(
         "logout/", LogoutView.as_view(template_name="user/logout.html"), name="logout"
     ),
+    path("accounts/profile/", user_views.profile, name="profile"),
 ]
