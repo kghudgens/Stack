@@ -18,3 +18,7 @@ def create(request):
     else:
         form = TaskForm()
     return render(request, "Stack/create.html", {"form": form})
+
+
+def about(request):
+    return render(request, "Stack/about.html")
