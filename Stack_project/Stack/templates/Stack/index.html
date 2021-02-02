@@ -4,11 +4,13 @@
 {%block content%}
 
     <!-- Header -->
-    <div class="container">
-        <div class='jumbotron'></div>
-        <h1>Stack</h1>
-        <p>Stack yours tasks here in the easiest to do list application on the market.</p>
-    </div>
+    <div class="container jumbotron">
+        <h1 class="display-4">Stack</h1>
+        <p class="lead">
+            Stack yours tasks here in the easiest to do list application on the market.
+        </p>
+        <hr class="my-4">
+      </div>
 <!-- Checks to see if is logged in  -->
 {%if user.is_authenticated%}
     <!-- Checks for messages -->
