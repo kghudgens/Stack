@@ -18,4 +18,12 @@ def register(request):
 
 
 def profile(request):
-    return render(request, "user/profile.html")
+    if request.method == "POST":
+        form = ProfileUpdateForm()
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your account has been updated.")
+            return redirect("profile")
+    else:
+        form = ProfileUpdateForm()
+    return render(request, "user/profile.html", {"form": form})
