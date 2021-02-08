@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.views.generic.detail import DetailView
 from .forms import ProfileUpdateForm
 
 # Create your views here.
@@ -14,6 +15,7 @@ def register(request):
             return redirect("login")
     else:
         form = UserCreationForm()
+
     return render(request, "user/register.html", {"form": form})
 
 
