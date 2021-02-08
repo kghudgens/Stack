@@ -2,11 +2,19 @@
 {%load crispy_forms_tags%}
 
 {%block content%}
-<!-- User -->
-{{user.first_name}}
-{{user.username}}
-{{user.email}}
+<!-- Deliver success message -->
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
 
+<!-- User -->
+    {{user.first_name}}
+    {{user.username}}
+    {{user.email}}
+
+<!-- Form -->
 <form class="form-group" method="POST" enctype="multipart/form-data">
     {%csrf_token%}
     <fieldset>
