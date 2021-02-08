@@ -6,7 +6,7 @@ from .forms import ProfileUpdateForm
 # Create your views here.
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm()
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get("username")
@@ -19,7 +19,7 @@ def register(request):
 
 def profile(request):
     if request.method == "POST":
-        form = ProfileUpdateForm()
+        form = ProfileUpdateForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Your account has been updated.")
