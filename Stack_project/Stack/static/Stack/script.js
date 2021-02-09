@@ -2,7 +2,12 @@
 const overlay = document.querySelector('.overlay')
 
 // hide the overlay container
-overlay.classList.add('hidden')
+try{
+    overlay.classList.add('hidden')
+} catch(err){
+    console.error("Type Error");
+}
+
 
 // create function that will remove the hidden class
 function showOverlay(){
@@ -17,3 +22,5 @@ document.querySelector('.save').addEventListener('click', function(){
 }
 )
 
+updateForm = document.querySelector('.update')
+console.log(updateForm);
