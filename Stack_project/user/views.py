@@ -2,9 +2,30 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import FormView
+from .models import Profile
 from .forms import ProfileUpdateForm
 
 # Create your views here.
+class ProfileDetailView(DetailView):
+    model = Profile
+
+    template_name = "user/profile.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+class UpdateProfileView(FormView):
+    template_name = "update_profile.html"
+    form_class = ProfileUpdateForm
+    success_url = "/profile/"
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -19,13 +40,13 @@ def register(request):
     return render(request, "user/register.html", {"form": form})
 
 
-def profile(request):
-    if request.method == "POST":
-        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Your account has been updated.")
-            return redirect("profile")
-    else:
-        form = ProfileUpdateForm()
-    return render(request, "user/profile.html", {"form": form})
+# def profile(request):
+#     if request.method == "POST":
+#         form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, "Your account has been updated.")
+#             return redirect("profile")
+#     else:
+#         form = ProfileUpdateForm()
+#     return render(request, "user/update_profile.html", {"form": form})
