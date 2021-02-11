@@ -6,13 +6,10 @@ from .models import Profile
 from .forms import ProfileUpdateForm
 
 
-class UpdateProfileView(FormView):
-    template_name = "update_profile.html"
-    form_class = ProfileUpdateForm
-    success_url = "/profile/"
-
-    def form_valid(self, form):
-        return super().form_valid(form)
+def profile(request):
+    profile = Profile.objects.all()
+    context = {"profile": profile}
+    return render(request, "user/profile.html", context)
 
 
 def register(request):
@@ -27,8 +24,3 @@ def register(request):
         form = UserCreationForm()
 
     return render(request, "user/register.html", {"form": form})
-
-
-def profile(request):
-    context = {"profile": Profile.objects.all()}
-    return render(request, "user/update_profile.html", context)
