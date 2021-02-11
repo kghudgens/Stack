@@ -10,10 +10,12 @@
     </ul>
 
 <!-- User -->
+{% for object in profile%}
     {{object.first_name}}
     {{object.username}}
     {{object.email}}
     {{object.tagline}}
+{%endfor%}
 
 
 {%endblock content%}
