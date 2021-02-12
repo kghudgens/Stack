@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.views.generic.edit import FormView
+from django.contrib.auth.decorators import login_required
 from .models import Profile
 from .forms import ProfileUpdateForm
 
 
+@login_required
 def profile(request):
     profile = Profile.objects.all()
     context = {"profile": profile}
