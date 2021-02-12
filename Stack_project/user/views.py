@@ -26,3 +26,22 @@ def register(request):
         form = UserCreationForm()
 
     return render(request, "user/register.html", {"form": form})
+
+
+@login_required
+def update_profile(request):
+    if request.method == "POST":
+        form = ProfileUpdateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            first_name = form.cleaned_data.get("first_name")
+            messages.success(request, "Your profile has been updated {first_name}")
+            return redirect("profile")
+    else:
+        form = ProfileUpdateForm()
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "user/update_profile.html", context)
