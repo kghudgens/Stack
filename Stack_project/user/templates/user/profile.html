@@ -9,12 +9,20 @@
         {% endfor %}
     </ul>
 
-    {{user.username}}
-    {{user.first_name}}
-    {{user.last_name}}
-    {{profile.tagline}}
+    <div class="container jumbotron">
+        <h1 class="display-4">Profile</h1>
+        <p class="lead">
+            Name: {{user.first_name}} {{user.last_name}}
+        </p>
+        <p class="lead">
+            Username: {{user.username}}
+        </p>
+        <p class="lead">
+            Tagline : {{user.tagline}}
+        </p>
+        <hr class="my-4">
+      </div>
 
-<!-- User -->
 
 
 {%endblock content%}
