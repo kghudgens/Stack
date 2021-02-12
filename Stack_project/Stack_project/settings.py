@@ -133,3 +133,5 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Reference URL for browser to access the files
 MEDIA_URL = "/media/"
+
+LOGIN_URL = "profile"
