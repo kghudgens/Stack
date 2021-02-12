@@ -31,5 +31,5 @@ urlpatterns = [
         user_views.profile,
         name="profile",
     ),
-    path("update_profile/", user_views.UpdateProfileView, name="update_profile"),
+    path("update_profile/", user_views.update_profile, name="update_profile"),
 ]
